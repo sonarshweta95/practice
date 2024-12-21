@@ -1,0 +1,65 @@
+PS C:\Users\dac.STUDENTSDC\Desktop\App> javac HelloWorld.java
+error: file not found: HelloWorld.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+PS C:\Users\dac.STUDENTSDC\Desktop\App> cd .\HelloWorld\
+PS C:\Users\dac.STUDENTSDC\Desktop\App\HelloWorld> javac HelloWorld.java
+HelloWorld.java:1: error: class AddTwoNumbers is public, should be declared in a file named AddTwoNumbers.java
+public class AddTwoNumbers {
+       ^
+1 error
+PS C:\Users\dac.STUDENTSDC\Desktop\App\HelloWorld> javac HelloWorld.java
+PS C:\Users\dac.STUDENTSDC\Desktop\App\HelloWorld> java HelloWorld
+The sum of 10 and 20 is 30
+PS C:\Users\dac.STUDENTSDC\Desktop\App\HelloWorld> docker build -t HelloWorld .
+invalid argument "HelloWorld" for "-t, --tag" flag: invalid reference format: repository name must be lowercase
+See 'docker build --help'.
+PS C:\Users\dac.STUDENTSDC\Desktop\App\HelloWorld> cd ..
+PS C:\Users\dac.STUDENTSDC\Desktop\App> docker build -t hello-world
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+PS C:\Users\dac.STUDENTSDC\Desktop\App> docker build -t hello-world .
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                     0.0s
+ => => transferring dockerfile: 2B                                                                                                                                                                                                       0.0s 
+ => [internal] load .dockerignore                                                                                                                                                                                                        0.0s 
+ => => transferring context: 2B                                                                                                                                                                                                          0.0s 
+failed to solve with frontend dockerfile.v0: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount1025222336/Dockerfile: no such file or directory
+PS C:\Users\dac.STUDENTSDC\Desktop\App> cd hello-world
+PS C:\Users\dac.STUDENTSDC\Desktop\App\hello-world> docker build -t hello-world .
+[+] Building 4.0s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                     0.0s
+ => => transferring dockerfile: 312B                                                                                                                                                                                                     0.0s 
+ => [internal] load .dockerignore                                                                                                                                                                                                        0.0s 
+ => => transferring context: 2B                                                                                                                                                                                                          0.0s 
+ => [internal] load metadata for docker.io/library/openjdk:latest                                                                                                                                                                        2.0s 
+ => [auth] library/openjdk:pull token for registry-1.docker.io                                                                                                                                                                           0.0s
+ => [internal] load build context                                                                                                                                                                                                        0.1s
+ => => transferring context: 1.72kB                                                                                                                                                                                                      0.0s 
+ => CACHED [1/4] FROM docker.io/library/openjdk:latest@sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f                                                                                                           0.0s 
+ => [2/4] WORKDIR /App                                                                                                                                                                                                                   0.1s 
+ => [3/4] COPY . /App                                                                                                                                                                                                                    0.1s
+ => [4/4] RUN javac HelloWorld.java                                                                                                                                                                                                      1.5s 
+ => exporting to image                                                                                                                                                                                                                   0.2s
+ => => exporting layers                                                                                                                                                                                                                  0.1s 
+ => => writing image sha256:0b7a1c10c6957fb3e3547fea5dfa8de9ce545cba3cc7dd711a2f2e5ea8ce9638                                                                                                                                             0.0s
+ => => naming to docker.io/library/hello-world                                                                                                                                                                                           0.0s 
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+PS C:\Users\dac.STUDENTSDC\Desktop\App\hello-world> docker run hello-world
+The sum of 10 and 20 is 30
+PS C:\Users\dac.STUDENTSDC\Desktop\App\hello-world> docker tag hello-world sp3002/hell:v01
+PS C:\Users\dac.STUDENTSDC\Desktop\App\hello-world> docker push sp3002/hell:v01
+The push refers to repository [docker.io/sp3002/hell]
+879a4467ef36: Pushed
+4e6c00d2a37f: Pushed
+8cf78e6f3a84: Pushed
+56285d9a7760: Mounted from sp3002/repo
+077bff59ce57: Mounted from sp3002/repo
+9cd9df9ffc97: Mounted from sp3002/repo
+v01: digest: sha256:4138c2e42373ebb285ed264fe08aa3f58af81aeed3b8170e2504a232a2edf2bc size: 1576
+PS C:\Users\dac.STUDENTSDC\Desktop\App\hello-world> 
